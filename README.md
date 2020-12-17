@@ -1,1 +1,1 @@
-# leecode-java
+# leetcode-java
