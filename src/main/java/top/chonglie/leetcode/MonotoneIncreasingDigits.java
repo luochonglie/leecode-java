@@ -1,27 +1,27 @@
 package top.chonglie.leetcode;
 
-import java.util.Arrays;
-
 public class MonotoneIncreasingDigits {
     public int monotoneIncreasingDigits(int N) {
         int result = 0;
-        int digitMax = 10;
-        int digit = 1;
+        int max = 10;
+        int multiple = 1;
 
         while (N > 0){
-            int t = N % 10;
-            if(t <= digitMax){
-                result += t * digit;
-                digitMax = t;
-            }else {
-                result = t * digit - 1;
-                digitMax = t - 1;
-            }
+            int digit = N % 10;
 
             N /= 10;
-            digit *= 10;
-        }
 
+            int high = N % 10;
+
+            if(high > digit){
+                result = multiple * 10 - 1;
+                N -= 1;
+            }else {
+                result += digit * multiple ;
+            }
+
+            multiple *= 10;
+        }
 
         return result;
 
