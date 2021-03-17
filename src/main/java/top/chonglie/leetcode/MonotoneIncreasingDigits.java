@@ -1,12 +1,6 @@
 package top.chonglie.leetcode;
 
-/**
- *
- *
- *
- */
 public class MonotoneIncreasingDigits {
-
     public int monotoneIncreasingDigits(int N) {
         int result = 0;
         int max = 10;
