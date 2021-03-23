@@ -13,9 +13,8 @@ public class AddTwoNumbers {
         List<Integer> total = new ArrayList<>();
 
         int jin = 0;
-        int r = 0;
+        int r;
         while (l1 != null || l2 != null) {
-            r = 0;
             if (l1 != null && l2 != null) {
                 r = l1.val + l2.val + jin;
             } else if (l1 != null) {
@@ -102,6 +101,6 @@ class ListNode {
 
     @Override
     public String toString() {
-        return String.valueOf(val) + (next == null ? "" : next.toString());
+        return val + (next == null ? "" : next.toString());
     }
 }
