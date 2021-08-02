@@ -11,6 +11,7 @@ public class MonotoneIncreasingDigitsTest {
 
     @Test
     public void monotoneIncreasingDigits() {
+
         Assert.assertEquals(123, solution.monotoneIncreasingDigits(123));
 
         Assert.assertEquals(9, solution.monotoneIncreasingDigits(10));
@@ -19,5 +20,6 @@ public class MonotoneIncreasingDigitsTest {
 
         Assert.assertEquals(999, solution.monotoneIncreasingDigits(1101));
 
+        Assert.assertEquals(899, solution.monotoneIncreasingDigits(987));
     }
 }
