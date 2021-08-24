@@ -24,6 +24,9 @@ public class CompletionFutureTest {
             return String.format("%s, %s", r1,r2);
         });
 
+
+
+
         System.out.println(f3.join());
     }
 }
