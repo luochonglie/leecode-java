@@ -19,11 +19,10 @@ import java.util.Collection;
 public class RenameTool {
     public static void main(String[] args) throws IOException {
         String path = "D:\\tmp\\change_file_name";
-        String separator = ".";
-        Collection<File> files = FileUtils.listFiles(new File(path), new String[]{"txt"}, false);
+        String separator = "\\.";
+        Collection<File> files = FileUtils.listFiles(new File(path), new String[]{"mp4"}, false);
 
         for (File file : files) {
-            System.out.println("From: " + file.getName() );
             System.out.println(Arrays.toString(file.getName().split(separator)));
             if(file.getName().split(separator)[0].length() < 3){
                 String newFileName = "0" + file.getName();
