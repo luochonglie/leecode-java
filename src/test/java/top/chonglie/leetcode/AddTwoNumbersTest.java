@@ -1,11 +1,9 @@
 package top.chonglie.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
-import org.w3c.dom.ls.LSException;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 
 public class AddTwoNumbersTest {
@@ -20,25 +18,24 @@ public class AddTwoNumbersTest {
 
         ListNode actual = obj.addTwoNumbers(l1, l2);
 
+        Assertions.assertEquals(expected, actual, String.format("%s + %s != %s", l1, l2, expected));
 
-        Assert.assertEquals(String.format("%s + %s != %s", l1, l2, expected), expected, actual);
+        l1 = new ListNode(new int[]{3, 7, 8});
+        l2 = new ListNode(new int[]{1, 1, 1});
 
-        l1 = new ListNode(new int[]{3,7,8});
-        l2 = new ListNode(new int[]{1,1,1});
-
-        expected = new ListNode(new int[]{4,8,9});
+        expected = new ListNode(new int[]{4, 8, 9});
 
         actual = obj.addTwoNumbers(l1, l2);
-        Assert.assertEquals(String.format("%s + %s != %s", l1, l2, expected), expected, actual);
+        Assertions.assertEquals( expected, actual,String.format("%s + %s != %s", l1, l2, expected));
 
 
     }
 
     @Test
-    public void testBuildListNode(){
-        int[] input = new int[]{3,5,4};
+    public void testBuildListNode() {
+        int[] input = new int[]{3, 5, 4};
         ListNode result = new ListNode(input);
-        Assert.assertEquals("354", result.toString());
+        Assertions.assertEquals("354", result.toString());
 
     }
 

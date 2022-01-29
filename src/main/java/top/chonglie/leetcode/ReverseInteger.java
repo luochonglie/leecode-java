@@ -6,11 +6,11 @@ public class ReverseInteger {
         int reversed = 0;
 
         while (x != 0) {
-            digit = x % 10;
-            reversed = reversed * 10 + digit;
             if (Integer.MIN_VALUE / 10 > reversed || reversed > Integer.MAX_VALUE / 10) {
                 return 0;
             }
+            digit = x % 10;
+            reversed = reversed * 10 + digit;
             x = x / 10;
         }
 

@@ -1,9 +1,8 @@
 package top.chonglie.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * ReverseInteger Tester.
@@ -20,19 +19,44 @@ public class ReverseIntegerTest {
      * Method: reverse(int x)
      */
     @Test
-    public void testReverse_1() {
+    public void testReversePositive() {
         int param = 123;
         int expect = 321;
 
-        Assert.assertEquals(expect, solution.reverse(param));
+        Assertions.assertEquals(expect, solution.reverse(param));
     }
 
     @Test
-    public void testReverse_2() {
-        int param = 1534236469;
+    public void testReversePositiveEndWithZero() {
+        int param = 12300;
+        int expect = 321;
+
+        Assertions.assertEquals(expect, solution.reverse(param));
+    }
+
+
+    @Test
+    public void testReverseBiggerThanMaxInt() {
+        int param = 2147483647;
         int expect = 0;
 
-        Assert.assertEquals(expect, solution.reverse(param));
+        Assertions.assertEquals(expect, solution.reverse(param));
+    }
+
+    @Test
+    public void testReverseNegative() {
+        int param = -12;
+        int expect = -21;
+
+        Assertions.assertEquals(expect, solution.reverse(param));
+    }
+
+    @Test
+    public void testReverseNegativeEndWithZero() {
+        int param = -10;
+        int expect = -1;
+
+        Assertions.assertEquals(expect, solution.reverse(param));
     }
 
     @Test
@@ -40,7 +64,7 @@ public class ReverseIntegerTest {
         int param = -2147483412;
         int expect = -2143847412;
 
-        Assert.assertEquals(expect, solution.reverse(param));
+        Assertions.assertEquals(expect, solution.reverse(param));
     }
 
 } 

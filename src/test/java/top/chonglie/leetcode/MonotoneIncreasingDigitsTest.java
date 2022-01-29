@@ -1,9 +1,8 @@
 package top.chonglie.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class MonotoneIncreasingDigitsTest {
 
@@ -12,14 +11,14 @@ public class MonotoneIncreasingDigitsTest {
     @Test
     public void monotoneIncreasingDigits() {
 
-        Assert.assertEquals(123, solution.monotoneIncreasingDigits(123));
+        Assertions.assertEquals(123, solution.monotoneIncreasingDigits(123));
 
-        Assert.assertEquals(9, solution.monotoneIncreasingDigits(10));
+        Assertions.assertEquals(9, solution.monotoneIncreasingDigits(10));
 
-        Assert.assertEquals(8999, solution.monotoneIncreasingDigits(9998));
+        Assertions.assertEquals(8999, solution.monotoneIncreasingDigits(9998));
 
-        Assert.assertEquals(999, solution.monotoneIncreasingDigits(1101));
+        Assertions.assertEquals(999, solution.monotoneIncreasingDigits(1101));
 
-        Assert.assertEquals(899, solution.monotoneIncreasingDigits(987));
+        Assertions.assertEquals(899, solution.monotoneIncreasingDigits(987));
     }
 }

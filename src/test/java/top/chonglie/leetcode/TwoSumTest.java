@@ -1,9 +1,8 @@
 package top.chonglie.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * TwoSum Tester.
@@ -26,7 +25,7 @@ public class TwoSumTest {
 
         int[] expects = new int[]{0, 1};
 
-        Assert.assertArrayEquals(expects, solution.twoSum(nums, target));
+        Assertions.assertArrayEquals(expects, solution.twoSum(nums, target));
     }
 
     @Test
@@ -36,7 +35,7 @@ public class TwoSumTest {
 
         int[] expects = new int[]{1, 2};
 
-        Assert.assertArrayEquals(expects, solution.twoSum(nums, target));
+        Assertions.assertArrayEquals(expects, solution.twoSum(nums, target));
     }
 
     @Test
@@ -46,7 +45,7 @@ public class TwoSumTest {
 
         int[] expects = new int[]{0, 1};
 
-        Assert.assertArrayEquals(expects, solution.twoSum(nums, target));
+        Assertions.assertArrayEquals(expects, solution.twoSum(nums, target));
     }
 
     @Test
@@ -56,7 +55,7 @@ public class TwoSumTest {
 
         int[] expects = new int[]{1, 2};
 
-        Assert.assertArrayEquals(expects, solution.twoSum(nums, target));
+        Assertions.assertArrayEquals(expects, solution.twoSum(nums, target));
     }
 
 }
