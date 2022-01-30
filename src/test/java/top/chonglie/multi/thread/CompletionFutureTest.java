@@ -2,6 +2,7 @@ package top.chonglie.multi.thread;
 
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,9 +24,7 @@ public class CompletionFutureTest {
             return String.format("%s, %s", r1,r2);
         });
 
-
-
-
         System.out.println(f3.join());
+
     }
 }
