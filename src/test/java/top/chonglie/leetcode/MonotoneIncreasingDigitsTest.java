@@ -3,22 +3,23 @@ package top.chonglie.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class MonotoneIncreasingDigitsTest {
 
     MonotoneIncreasingDigits solution = new MonotoneIncreasingDigits();
 
-    @Test
-    public void monotoneIncreasingDigits() {
-
-        Assertions.assertEquals(123, solution.monotoneIncreasingDigits(123));
-
-        Assertions.assertEquals(9, solution.monotoneIncreasingDigits(10));
-
-        Assertions.assertEquals(8999, solution.monotoneIncreasingDigits(9998));
-
-        Assertions.assertEquals(999, solution.monotoneIncreasingDigits(1101));
-
-        Assertions.assertEquals(899, solution.monotoneIncreasingDigits(987));
+    @ParameterizedTest
+    @CsvSource({
+            "123, 123"
+            , "10, 9"
+            , "9998, 8999"
+            , "1101, 999"
+            , "987, 899"
+    }
+    )
+    public void monotoneIncreasingDigits(int input, int expected) {
+        Assertions.assertEquals(expected, solution.monotoneIncreasingDigits(input));
     }
 }
