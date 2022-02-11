@@ -70,7 +70,7 @@ public class AddTwoNumbers {
             total.add(1);
         }
 
-        return new ListNode(total.toArray(new Integer[total.size()]));
+        return new ListNode(total.toArray(new Integer[0]));
     }
 
 }
@@ -79,9 +79,6 @@ public class AddTwoNumbers {
 class ListNode {
     int val;
     ListNode next;
-
-    ListNode() {
-    }
 
     ListNode(int val) {
         this.val = val;
