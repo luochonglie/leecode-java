@@ -44,43 +44,33 @@ public class AddTwoNumbers {
 
         List<Integer> total = new ArrayList<>();
 
-        int jin = 0;
-        int r;
+        // 进位
+        int carry = 0;
+        int digit;
         while (l1 != null || l2 != null) {
             if (l1 != null && l2 != null) {
-                r = l1.val + l2.val + jin;
+                digit = l1.val + l2.val + carry;
             } else if (l1 != null) {
-                r = l1.val + jin;
+                digit = l1.val + carry;
             } else {
-                r = l2.val + jin;
+                digit = l2.val + carry;
             }
 
-            if (r > 9) {
-                r -= 10;
-                jin = 1;
-            } else {
-                jin = 0;
-            }
-            total.add(r);
+            carry = digit / 10;
+            digit = digit % 10;
 
+            total.add(digit);
 
-            l1 = l1 == null ? null : l1.next;
-            l2 = l2 == null ? null : l2.next;
+            l1 = (l1 == null) ? null : l1.next;
+            l2 = (l2 == null) ? null : l2.next;
         }
 
-        if (jin != 0) {
+        //处理进位
+        if (carry != 0) {
             total.add(1);
         }
 
-        ListNode end = new ListNode(total.get(total.size() - 1));
-        ListNode begin = end;
-
-        for (int i = total.size() - 2; i >= 0; i--) {
-            begin = new ListNode(total.get(i), end);
-            end = begin;
-        }
-
-        return begin;
+        return new ListNode(total.toArray(new Integer[total.size()]));
     }
 
 }
@@ -104,6 +94,22 @@ class ListNode {
 
     ListNode(int[] val) {
         if (!Objects.isNull(val) && val.length > 0) {
+            ListNode tail = new ListNode(val[val.length - 1]);
+            ListNode head = null;
+            int i = val.length - 2;
+            for (; i > 0; i--) {
+                head = new ListNode(val[i], tail);
+                tail = head;
+            }
+            if (i == 0) {
+                this.val = val[0];
+                this.next = head;
+            }
+        }
+    }
+
+    ListNode(Integer[] val) {
+        if (!Objects.isNull(val) && val.length > 0) {
             ListNode end = new ListNode(val[val.length - 1]);
             ListNode begin = null;
             int i = val.length - 2;
@@ -111,7 +117,7 @@ class ListNode {
                 begin = new ListNode(val[i], end);
                 end = begin;
             }
-            if(i ==0){
+            if (i == 0) {
                 this.val = val[0];
                 this.next = begin;
             }
