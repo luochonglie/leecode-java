@@ -1,7 +1,5 @@
 package top.chonglie.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -38,16 +36,17 @@ import java.util.Objects;
  */
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (Objects.isNull(l1) || Objects.isNull(l2)) {
-            return null;
-        }
-
-        List<Integer> total = new ArrayList<>();
+        int[] result = new int[100];
 
         // 进位
         int carry = 0;
+        // 当前的位置
+        int position = -1;
+        // 当前位置的值
         int digit;
+
         while (l1 != null || l2 != null) {
+            // 两个链表都有值
             if (l1 != null && l2 != null) {
                 digit = l1.val + l2.val + carry;
             } else if (l1 != null) {
@@ -56,22 +55,45 @@ public class AddTwoNumbers {
                 digit = l2.val + carry;
             }
 
+            // 进位的值为除10求整
             carry = digit / 10;
+            // 当前位置的值为除10求余
             digit = digit % 10;
+            // 记录当前位置的值
+            result[++position] = digit;
 
-            total.add(digit);
-
+            // 取下一位置的值
             l1 = (l1 == null) ? null : l1.next;
             l2 = (l2 == null) ? null : l2.next;
         }
 
-        //处理进位
+        // 处理最后一个进位
         if (carry != 0) {
-            total.add(1);
+            result[++position] = carry;
         }
 
-        return new ListNode(total.toArray(new Integer[0]));
+        // 构造返回值，数组长度为当前数字位置+1
+        return buildListNode(result, position + 1);
     }
+
+    private ListNode buildListNode(int[] val, int length) {
+        ListNode tail = new ListNode(val[length - 1]);
+
+        //如果只有一位数字
+        if (length == 1) {
+            return tail;
+        }
+
+        ListNode head = null;
+
+        for (int i = length - 2; i >= 0; i--) {
+            head = new ListNode(val[i], tail);
+            tail = head;
+        }
+        return head;
+
+    }
+
 
 }
 
@@ -79,6 +101,9 @@ public class AddTwoNumbers {
 class ListNode {
     int val;
     ListNode next;
+
+    ListNode() {
+    }
 
     ListNode(int val) {
         this.val = val;
@@ -105,21 +130,6 @@ class ListNode {
         }
     }
 
-    ListNode(Integer[] val) {
-        if (!Objects.isNull(val) && val.length > 0) {
-            ListNode end = new ListNode(val[val.length - 1]);
-            ListNode begin = null;
-            int i = val.length - 2;
-            for (; i > 0; i--) {
-                begin = new ListNode(val[i], end);
-                end = begin;
-            }
-            if (i == 0) {
-                this.val = val[0];
-                this.next = begin;
-            }
-        }
-    }
 
     @Override
     public boolean equals(Object o) {
