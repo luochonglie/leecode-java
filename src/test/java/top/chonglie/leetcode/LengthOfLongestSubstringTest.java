@@ -28,6 +28,7 @@ class LengthOfLongestSubstringTest {
             "bbbbb, 1",
             "pwwke, 3",
             "'',0",
+            "' ', 1"
     })
     void testLengthOfLongestSubstring(String input, int expected) {
         Assertions.assertEquals(expected, solution.lengthOfLongestSubstring(input));
