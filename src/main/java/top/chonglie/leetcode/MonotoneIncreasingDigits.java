@@ -32,7 +32,6 @@ package top.chonglie.leetcode;
 public class MonotoneIncreasingDigits {
     public int monotoneIncreasingDigits(int N) {
         int result = 0;
-        int max = 10;
         int multiple = 1;
 
         while (N > 0) {
