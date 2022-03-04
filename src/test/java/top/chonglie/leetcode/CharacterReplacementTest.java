@@ -10,9 +10,10 @@ class CharacterReplacementTest {
 
     @ParameterizedTest
     @CsvSource({
-            "'', 1, 0"
-            ,"ABAB, 2, 4"
+            "A, 1, 1"
+            , "ABAB, 2, 4"
             , "AABABBA, 1, 4"
+            , "BAAAB, 2, 5"
     })
     void testCharacterReplacement(String s, int k, int expected) {
         Assertions.assertEquals(expected, characterReplacement.characterReplacement(s, k));
