@@ -25,6 +25,7 @@ public class CharacterReplacement {
 
             //右指针右移
             right++;
+
         }
 
         //返回当前窗口长度
