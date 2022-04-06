@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class SetupIntegerInHex {
+class HexFormatIntValueTest {
     @ParameterizedTest
     @CsvSource({
             "07, 7"
@@ -17,7 +17,7 @@ public class SetupIntegerInHex {
     /**
      * 给int赋值时，以0开头，为8进制数字
      */
-    public void test8Hex(int input, int expected){
+    void test8Hex(int input, int expected){
         Assertions.assertEquals(input, expected);
     }
 
@@ -38,7 +38,7 @@ public class SetupIntegerInHex {
      * @param input
      * @param expected
      */
-    public void test16Hex(int input, int expected){
+    void test16Hex(int input, int expected){
         Assertions.assertEquals(input, expected);
     }
 }
