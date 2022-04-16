@@ -1,8 +1,6 @@
 package top.chonglie;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import sun.nio.ch.IOUtil;
 
 import java.io.File;
 import java.io.IOException;
