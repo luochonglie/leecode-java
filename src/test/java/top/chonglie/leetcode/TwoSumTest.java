@@ -2,12 +2,9 @@ package top.chonglie.leetcode;
 
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -36,8 +33,14 @@ class TwoSumTest {
      */
     @ParameterizedTest
     @MethodSource("arguments")
-    void testTwoSum(int[] nums, int target, int[] expect) {
+    void twoSum(int[] nums, int target, int[] expect) {
         Assertions.assertArrayEquals(expect, solution.twoSum(nums, target));
+    }
+
+    @ParameterizedTest
+    @MethodSource("arguments")
+    void twoSumV1(int[] nums, int target, int[] expect) {
+        Assertions.assertArrayEquals(expect, solution.twoSumV1(nums,target));
     }
 
 }
