@@ -13,12 +13,16 @@
     <!-- 项目的打包方式-->
     <packaging>jar</packaging>
 
+    <properties>
+        <evosuiteVersion>1.0.6</evosuiteVersion>
+    </properties>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>2.7</version>
         </dependency>
 
 
@@ -29,7 +33,15 @@
             <version>5.8.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.evosuite</groupId>
+            <artifactId>evosuite-standalone-runtime</artifactId>
+            <version>${evosuiteVersion}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
