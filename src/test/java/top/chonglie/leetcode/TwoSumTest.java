@@ -2,12 +2,9 @@ package top.chonglie.leetcode;
 
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -36,18 +33,14 @@ class TwoSumTest {
      */
     @ParameterizedTest
     @MethodSource("arguments")
-    void testTwoSum(int[] nums, int target, int[] expect) {
+    void twoSum(int[] nums, int target, int[] expect) {
         Assertions.assertArrayEquals(expect, solution.twoSum(nums, target));
     }
 
-    //编写TwoSum类的测试用例
-    @Test
-    void testTwoSum() {
-        Assertions.assertArrayEquals(new int[]{0, 1}, solution.twoSum(new int[]{2, 7, 11, 15}, 9));
-        Assertions.assertArrayEquals(new int[]{1, 2}, solution.twoSum(new int[]{3, 2, 4}, 6));
-        Assertions.assertArrayEquals(new int[]{0, 1}, solution.twoSum(new int[]{3, 3}, 6));
-        Assertions.assertArrayEquals(new int[]{1, 2}, solution.twoSum(new int[]{2, 5, 5, 11}, 10));
+    @ParameterizedTest
+    @MethodSource("arguments")
+    void twoSumV1(int[] nums, int target, int[] expect) {
+        Assertions.assertArrayEquals(expect, solution.twoSumV1(nums,target));
     }
-
 
 }

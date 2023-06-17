@@ -1,15 +1,12 @@
 package top.chonglie.multi.thread;
 
 
-
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static sun.swing.SwingUtilities2.submit;
 
 /**
  * <p>线程池执行器的测试类</p>
