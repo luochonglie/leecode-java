@@ -40,4 +40,14 @@ class TwoSumTest {
         Assertions.assertArrayEquals(expect, solution.twoSum(nums, target));
     }
 
+    //编写TwoSum类的测试用例
+    @Test
+    void testTwoSum() {
+        Assertions.assertArrayEquals(new int[]{0, 1}, solution.twoSum(new int[]{2, 7, 11, 15}, 9));
+        Assertions.assertArrayEquals(new int[]{1, 2}, solution.twoSum(new int[]{3, 2, 4}, 6));
+        Assertions.assertArrayEquals(new int[]{0, 1}, solution.twoSum(new int[]{3, 3}, 6));
+        Assertions.assertArrayEquals(new int[]{1, 2}, solution.twoSum(new int[]{2, 5, 5, 11}, 10));
+    }
+
+
 }
