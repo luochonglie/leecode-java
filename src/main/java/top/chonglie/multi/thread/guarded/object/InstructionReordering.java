@@ -10,6 +10,11 @@ public class InstructionReordering {
     static int a = 0, b = 0;
 
     public static void main(String[] args) throws InterruptedException {
+        example2();
+    }
+
+
+    public static void example1() throws InterruptedException {
         int i = 0;
         while (true) {
             i++;
@@ -40,6 +45,43 @@ public class InstructionReordering {
             y = 0;
             a = 0;
             b = 0;
+        }
+    }
+
+    static boolean show = false;
+    static int snapshot = 0;
+    public static void example2() throws InterruptedException {
+        int i = 0;
+
+        while (true) {
+            i++;
+            Thread one = new Thread(() -> {
+                a = 1;
+                show = true;
+            });
+
+            Thread two = new Thread(() -> {
+                if (show) {
+                    snapshot = a;
+                }
+                //System.out.println(String.format("show = %b, a = %d, snapshot = %d", show, a, snapshot));
+
+            });
+
+            one.start();
+            two.start();
+
+            one.join();
+            two.join();
+
+            if(snapshot == 0){
+                System.out.println("第" + i + "次 : Indicate Reordered: snapshot = " + snapshot);
+                break;
+            }else {
+                a = 0;
+                show = false;
+                snapshot = -1;
+            }
         }
     }
 }
